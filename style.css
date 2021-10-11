@@ -12,15 +12,16 @@
 body {
   color: var(--text);
   font-family: 'Verdana';
+  overflow: hidden;
 
   background: var(--background);
 }
 
 h1, h2, p { margin: 0.5vw; }
-h1, h2 { color: var(--emphasis); }
+h1, h2, li { color: var(--emphasis); }
 h1 { font-size: 3.5vw; }
 h2 { font-size: 2.5vw; }
-p { font-size: 2vw; }
+p, li { font-size: 2vw; }
 
 a {
   transition: 0.3s;
@@ -48,13 +49,12 @@ a:hover {
 
 #bigText {
   z-index: -1;
+  user-select: none;
 
   position: absolute;
-  top: 1vw;
-  left: 1vw;
-  width: 10vw;
+  left: 1.5vw;
 
-  font-size: 3vw;
+  font-size: 2.8vw;
   font-weight: bolder;
-  color: var(--box);
+  color: #ece0ce;
 }
