@@ -3,9 +3,12 @@ window.onload = function() {
   big.id = 'bigText';
   document.body.insertBefore(big, document.body.firstChild);
 
-  var length = window.innerWidth / 15;
+  var length = Math.max(
+    document.body.scrollHeight,
+    document.body.offsetHeight
+  ) / 45;
 
   for (var i = 0; i < length; i++) {
-    big.innerHTML += 'ENGL 224 ';
+    big.innerHTML += 'ENGL 224 ENGL 224 ENGL 224 ENGL 224 ENGL 224 ENGL 224 ';
   }
 }
