@@ -39,7 +39,7 @@ a:hover {
 .flexcolumn, .small_flexcolumn { flex-direction: column; }
 .flexrow, .small_flexrow { flex-direction: row; }
 .small_flexcolumn, .small_flexrow {
-  width: 75vw;
+  margin: 1vw;
   margin-top: 4vw;
   padding: 1vw;
 

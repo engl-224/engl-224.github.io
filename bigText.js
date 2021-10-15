@@ -6,7 +6,7 @@ window.onload = function() {
   var length = Math.max(
     document.body.scrollHeight,
     document.body.offsetHeight
-  ) / 45;
+  ) / 50;
 
   for (var i = 0; i < length; i++) {
     big.innerHTML += 'ENGL 224 ENGL 224 ENGL 224 ENGL 224 ENGL 224 ENGL 224 ';
