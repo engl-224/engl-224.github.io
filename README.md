@@ -4,7 +4,4 @@
 
 ## Portfolios
 
-## Tips & Tricks
-
-## Weekly Schedule
-
+## Weekly Schedule Builder
