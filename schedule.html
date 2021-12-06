@@ -24,35 +24,4 @@
 
   <script src="dom-to-image.js" charset="utf-8"></script>
   <script src="schedule.js" charset="utf-8"></script>
-  <script type="text/javascript">
-    var lastParentID;
-
-    function allowDrop(ev) {
-      ev.preventDefault();
-    }
-
-    function drag(ev) {
-      ev.dataTransfer.setData("text", ev.target.id);
-
-      lastParentID = ev.target.parentElement.id;
-    }
-
-    function drop(ev, el) {
-      ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
-      var draggable = document.getElementById(data);
-      el.appendChild(draggable);
-
-      if (ev.target.id == "div1" || ev.target.parentElement.id == "div1") {
-        if (lastParentID != "div1") {
-          draggable.parentElement.removeChild(draggable);
-        }
-      }
-      else {
-        if (lastParentID == "div1") {
-          newDraggable(draggable.innerHTML);
-        }
-      }
-    }
-  </script>
 </html>

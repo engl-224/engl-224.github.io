@@ -1,3 +1,30 @@
+var lastParentID;
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+
+  lastParentID = ev.target.parentElement.id;
+}
+
+function drop(ev, el) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  var draggable = document.getElementById(data);
+  el.appendChild(draggable);
+
+  if (ev.target.id == "div1" || ev.target.parentElement.id == "div1" || lastParentID == "div1") {
+    loadActivities();
+  }
+}
+
+
+// --------------------
+
+
 var days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 var activities = [
   "Class Record Form",
@@ -15,9 +42,7 @@ var divCount = 1;
 loadSchedule();
 
 function loadSchedule() {
-  for (var i = 0; i < activities.length; i++) {
-    newDraggable(activities[i]);
-  }
+  loadActivities();
 
   for (var j = 0; j < days.length; j++) {
     var newDiv = document.createElement("DIV");
@@ -32,6 +57,14 @@ function loadSchedule() {
     var newTitle = document.createElement("H2");
     newTitle.innerHTML = days[j];
     newDiv.appendChild(newTitle);
+  }
+}
+
+function loadActivities() {
+  removeChildren(document.getElementById("div1"));
+
+  for (var i = 0; i < activities.length; i++) {
+    newDraggable(activities[i]);
   }
 }
 
@@ -63,4 +96,10 @@ function downloadSchedule() {
     .catch(function (error) {
       console.error('oops, something went wrong!', error);
     });
+}
+
+function removeChildren(parent) {
+    while (parent.lastChild) {
+        parent.removeChild(parent.lastChild);
+    }
 }
